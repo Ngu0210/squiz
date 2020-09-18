@@ -15,18 +15,18 @@ jobs:
         with:
           python-version: '3.8'
   deployment:
-  needs: test_suite
-  runs-on: ubuntu-latest
-  steps:
-    - name: Fresh Clone & Repo Install
-      uses: appleboy/ssh-action@master
-      with:
-        host: 52.21.39.138
-        username: github-action
-        key: ${{ secrets.SSH_KEY }}
-        port: 22
-        script: |
-          rm -rf squiz
-          git clone https://github.com/Ngu0210/squiz.git
-          python3.8 -m venv /home/github-action/squiz/venv
-          /home/github-action/squiz/venv/bin/pip install -r requirements.txt
+    needs: test_suite
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fresh Clone & Repo Install
+        uses: appleboy/ssh-action@master
+        with:
+          host: 52.21.39.138
+          username: github-action
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            rm -rf squiz
+            git clone https://github.com/Ngu0210/squiz.git
+            python3.8 -m venv /home/github-action/squiz/venv
+            /home/github-action/squiz/venv/bin/pip install -r requirements.txt
