@@ -26,7 +26,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: 22
         script: |
-        rm -rf squiz
-        git clone https://github.com/Ngu0210/squiz.git
-        python3.8 -m venv /home/github-action/squiz/venv
-        /home/github-action/squiz/venv/bin/pip install -r requirements.txt
+          rm -rf squiz
+          git clone https://github.com/Ngu0210/squiz.git
+          python3.8 -m venv /home/github-action/squiz/venv
+          /home/github-action/squiz/venv/bin/pip install -r requirements.txt
